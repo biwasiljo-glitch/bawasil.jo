@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مبادرة شبابية أردنية لتعزيز الهوية الوطنية والتمكين السياسي الواعي">
+    <title>مبادرة بواسل - شباب واعٍ وهوية راسخة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-black: #000000;
+            --primary-white: #FFFFFF;
+            --primary-green: #007A3D;
+            --primary-red: #CE1126;
+            --accent-gold: #D4AF37;
+            --bg-light: #F8F9FA;
+            --text-dark: #212529;
+            --text-gray: #6C757D;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--primary-white);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            max-width: 200px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .lang-toggle {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .lang-toggle:hover {
+            background: #005a2d;
+            transform: scale(1.05);
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary-black);
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 122, 61, 0.05), rgba(206, 17, 38, 0.05));
+            padding: 8rem 5% 4rem;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-green) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.03;
+            animation: movePattern 20s linear infinite;
+        }
+        
+        @keyframes movePattern {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: var(--primary-black);
+        }
+        
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: var(--primary-green);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #005a2d;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 122, 61, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--primary-black);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green), var(--primary-red));
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .about-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-right: 4px solid var(--primary-green);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-green);
+            font-weight: 700;
+        }
+        
+        .about-card p, .about-card ul {
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+        
+        .about-card ul {
+            list-style: none;
+            padding-right: 1rem;
+        }
+        
+        .about-card ul li {
+            position: relative;
+            padding-right: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .about-card ul li::before {
+            content: '◆';
+            position: absolute;
+            right: 0;
+            color: var(--primary-red);
+            font-size: 0.8rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary-green), #005a2d);
+            color: white;
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item h3 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--accent-gold);
+        }
+        
+        .stat-item p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item::after {
+            content: attr(data-title);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            font-weight: 600;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover::after {
+            transform: translateY(0);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--bg-light);
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .social-link.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+        }
+        
+        .social-link.whatsapp:hover {
+            background: #25D366;
+            color: white;
+        }
+        
+        .social-link.facebook:hover {
+            background: #1877F2;
+            color: white;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary-black);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+        
+        .footer-slogan {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        footer p {
+            opacity: 0.7;
+        }
+        
+        /* Articles Section */
+        .articles-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary-green);
+        }
+        
+        .article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .article-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 122, 61, 0.05), rgba(206, 17, 38, 0.05));
+        }
+        
+        .article-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            flex-wrap: wrap;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+        
+        .article-footer {
+            padding: 1rem 1.5rem;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .read-more {
+            color: var(--primary-green);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #005a2d;
+            text-decoration: underline;
+        }
+        
+        /* Founder Section */
+        .founder-section {
+            background: linear-gradient(135deg, rgba(0, 122, 61, 0.03), rgba(206, 17, 38, 0.03));
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 4rem 0;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .founder-image {
+            flex: 0 0 200px;
+            text-align: center;
+        }
+        
+        .founder-image-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-red));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 122, 61, 0.3);
+        }
+        
+        .founder-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .founder-title {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+        
+        .founder-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+        
+        .founder-bio {
+            color: var(--text-gray);
+            line-height: 2;
+            font-size: 1.05rem;
+        }
+        
+        /* Write Article Form */
+        .write-article-btn {
+            background: linear-gradient(135deg, var(--primary-green), #005a2d);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 5px 20px rgba(0, 122, 61, 0.3);
+        }
+        
+        .write-article-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 122, 61, 0.4);
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 700px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-gray);
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .close-modal:hover {
+            background: var(--bg-light);
+            color: var(--primary-red);
+            transform: rotate(90deg);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 122, 61, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 200px;
+            resize: vertical;
+        }
+        
+        .submit-article {
+            background: var(--primary-green);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-article:hover {
+            background: #005a2d;
+            transform: translateY(-2px);
+        }
+        
+        .no-articles {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+        
+        /* Join Form */
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 122, 61, 0.1);
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, var(--primary-green), #005a2d);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .success-message h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-message p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .stat-item h3 {
+                font-size: 2.5rem;
+            }
+            
+            .founder-section {
+                flex-direction: column;
+                padding: 2rem;
+            }
+            
+            .founder-image-circle {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="C:\Users\hamza\Desktop\الصور للموقع\Bawasilلوجو-removebg-preview-removebg-preview.png" 
+                     alt="شعار بواسل" 
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 60%22%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Tajawal, Arial%22 font-size=%2228%22 font-weight=%22900%22 fill=%22%23007A3D%22%3Eبواسل%3C/text%3E%3C/svg%3E';">
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+                <li><a href="#about" data-ar="من نحن" data-en="About Us">من نحن</a></li>
+                <li><a href="#articles" data-ar="المقالات" data-en="Articles">المقالات</a></li>
+                <li><a href="#activities" data-ar="أنشطتنا" data-en="Our Activities">أنشطتنا</a></li>
+                <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+            </ul>
+            <button class="lang-toggle" id="langToggle" onclick="toggleLanguage()">English</button>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+                    <div class="hero-content">
+            <h1>مبادرة <span class="highlight">بواسل</span>… شباب واعٍ، وهوية راسخة، ومستقبل يُصنع</h1>
+            <p>مبادرة شبابية أردنية تُعنى بتعزيز الهوية الوطنية والسردية الأردنية، والتمكين السياسي الواعي، وبناء جيل مؤمن بوطنه ومعتز بانتمائه</p>
+            <div class="cta-buttons">
+                <a href="#about" class="btn btn-primary">تعرّف على المبادرة</a>
+                <a href="#" class="btn btn-secondary" onclick="openJoinModal(); return false;">انضم إلينا</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">من نحن</h2>
+        
+        <div class="about-grid fade-in">
+            <div class="about-card">
+                <h3>ما هي مبادرة بواسل؟</h3>
+                <p>مبادرة بواسل هي إحدى المبادرات الشبابية الأردنية التي انطلقت برؤية واضحة لتعزيز الدور السياسي الواعي لدى الشباب، وترسيخ السردية الأردنية القائمة على الحقيقة والمسؤولية والانتماء الوطني.</p>
+                <p style="margin-top: 1rem;">تسعى بواسل إلى تقديم خطاب شبابي جديد، مختلف عن الطرح التقليدي، يربط الشباب بتاريخهم ورموزهم الوطنية ومؤسسات الدولة.</p>
+            </div>
+            
+            <div class="about-card">
+                <h3>التأسيس والانطلاقة</h3>
+                <p><strong>تأسست عام 2024</strong></p>
+                <p style="margin-top: 1rem;">بدأت أنشطتها الرسمية تحت المظلة القانونية بعد التوطين الأول في وزارة الشباب – مديرية شباب العاصمة بتاريخ 12-8-2025</p>
+            </div>
+            
+            <div class="about-card">
+                <h3>لماذا بواسل؟</h3>
+                <ul>
+                    <li>تعزيز الوعي السياسي القائم على الحقيقة والوطنية</li>
+                    <li>رفع مشاركة الشباب في الشأن العام</li>
+                    <li>تعزيز الهوية الأردنية والانتماء الحقيقي</li>
+                    <li>بناء جيل فخور بوطنه ومشارك في صنع مستقبله</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="about-grid fade-in" style="margin-top: 2rem;">
+            <div class="about-card">
+                <h3>أهداف المبادرة</h3>
+                <ul>
+                    <li>تعزيز الهوية الوطنية والسردية الأردنية</li>
+                    <li>التمكين السياسي للشباب</li>
+                    <li>ربط الشباب بمؤسسات الدولة</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <h3>مجالات العمل</h3>
+                <ul>
+                    <li>العمل التطوعي المجتمعي</li>
+                    <li>التمكين السياسي للشباب</li>
+                    <li>التعليم والتدريب</li>
+                    <li>تعزيز الهوية الوطنية</li>
+                    <li>التواصل مع مؤسسات الدولة</li>
+                </ul>
+            </div>
+            
+            <div class="about-card">
+                <h3>الفئة المستهدفة</h3>
+                <p>تستهدف مبادرة بواسل فئة الشباب من عمر <strong>18 إلى 35 عاماً</strong>، مع تركيز أساسي على محافظة العاصمة عمّان، وبطموح للتوسع مستقبلاً ليشمل مختلف محافظات المملكة.</p>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="stats fade-in">
+            <h2 style="margin-bottom: 3rem; font-size: 2rem;">القدرات التنظيمية</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3 class="counter" data-target="189">0</h3>
+                    <p>إجمالي المنتسبين</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="122">0</h3>
+                    <p>الإناث</p>
+                </div>
+                <div class="stat-item">
+                    <h3 class="counter" data-target="79">0</h3>
+                    <p>الذكور</p>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; font-size: 1.1rem; opacity: 0.9;">الفئة العمرية: 17 - 35 سنة</p>
+        </div>
+
+        <div class="about-card fade-in" style="margin-top: 2rem;">
+            <h3>الاستدامة والاستمرارية</h3>
+            <p>تنسجم مبادرة بواسل مع محاور الاستراتيجية الوطنية للشباب وأهداف التنمية المستدامة، خصوصاً في مجالي المشاركة والقيادة الفاعلة، والتعليم والتدريب، بما يضمن استمرارية الأثر وتعزيز دور الشباب كمواطنين فاعلين.</p>
+        </div>
+    </section>
+
+    <!-- Activities/Gallery Section -->
+    <section id="activities">
+        <h2 class="section-title" data-ar="أنشطة بواسل" data-en="Bawasil Activities">أنشطة بواسل</h2>
+        <div class="gallery-grid fade-in">
+            <div class="gallery-item" data-title="فعاليات تطوعية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\11.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="ورش تدريبية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\12.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="لقاءات شبابية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\13.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="أنشطة ميدانية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\14.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="مبادرات مجتمعية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\15.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="برامج توعوية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\16.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="أنشطة شبابية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\17.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="فعاليات ثقافية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\18.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="لقاءات وطنية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\19.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="أنشطة تفاعلية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\20.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="جلسات حوارية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\21.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="مبادرات شبابية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\22.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="برامج تطويرية" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\23.png'); background-size: cover; background-position: center;"></div>
+            <div class="gallery-item" data-title="فعاليات هادفة" style="background-image: url('C:\\Users\\hamza\\Desktop\\الصور للموقع\\24.png'); background-size: cover; background-position: center;"></div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section>
+        <div class="founder-section fade-in">
+            <div class="founder-image">
+                <div class="founder-image-circle">
+                    👤
+                </div>
+            </div>
+            <div class="founder-content">
+                <h3 class="founder-title" data-ar="المؤسس والمدير العام" data-en="Founder & General Manager">المؤسس والمدير العام</h3>
+                <h4 class="founder-name">حمزة أبو دقة</h4>
+                <div class="founder-bio">
+                    <p>شاب أردني يبلغ من العمر 20 عاماً، يدرس الإعلام الرقمي في جامعة الشرق الأوسط. يهتم بالمجالين السياسي والشبابي، ويؤمن بأهمية الإعلام الواعي كأداة مؤثرة في بناء الرأي العام وتعزيز الانتماء الوطني.</p>
+                    <p style="margin-top: 1rem;">يسعى حمزة إلى تطوير نفسه في العمل الشبابي والمجتمعي، والمساهمة في تمكين الشباب ورفع مستوى وعيهم السياسي والوطني، من خلال خطاب مسؤول يعكس قيم الحقيقة والانتماء والمشاركة الفاعلة.</p>
+                    <p style="margin-top: 1rem;">من خلال مبادرة بواسل، يعمل حمزة على ترجمة اهتماماته وأفكاره إلى واقع عملي، عبر تعزيز الهوية الوطنية والسردية الأردنية، وربط الشباب بتاريخهم ومؤسسات دولتهم، وخلق مساحة شبابية واعية تسهم في بناء مجتمع أكثر وعياً ومسؤولية.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section id="articles">
+        <h2 class="section-title" data-ar="مقالات شبابية" data-en="Youth Articles">مقالات شبابية</h2>
+        <p style="text-align: center; color: var(--text-gray); font-size: 1.1rem; margin-bottom: 2rem;" data-ar="منصة لأصوات الشباب الأردني وأفكارهم وتجاربهم" data-en="A platform for Jordanian youth voices, ideas, and experiences">منصة لأصوات الشباب الأردني وأفكارهم وتجاربهم</p>
+        
+        <button class="write-article-btn" onclick="openArticleModal()" data-ar="✍️ اكتب مقالك" data-en="✍️ Write Your Article">✍️ اكتب مقالك</button>
+        
+        <div class="articles-container fade-in" id="articlesContainer">
+            <div class="no-articles" data-ar="لا توجد مقالات بعد. كن أول من يشارك مقاله!" data-en="No articles yet. Be the first to share your article!">لا توجد مقالات بعد. كن أول من يشارك مقاله!</div>
+        </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div class="modal" id="articleModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeArticleModal()">×</button>
+            <h2 style="margin-bottom: 2rem; color: var(--primary-green);" data-ar="اكتب مقالك" data-en="Write Your Article">اكتب مقالك</h2>
+            <form id="articleForm" onsubmit="submitArticle(event)">
+                <div class="form-group">
+                    <label data-ar="الاسم" data-en="Name">الاسم</label>
+                    <input type="text" id="authorName" required placeholder="أدخل اسمك">
+                </div>
+                <div class="form-group">
+                    <label data-ar="عنوان المقال" data-en="Article Title">عنوان المقال</label>
+                    <input type="text" id="articleTitle" required placeholder="عنوان جذاب لمقالك">
+                </div>
+                <div class="form-group">
+                    <label data-ar="المحتوى" data-en="Content">المحتوى</label>
+                    <textarea id="articleContent" required placeholder="اكتب مقالك هنا... شاركنا أفكارك وتجاربك"></textarea>
+                </div>
+                <button type="submit" class="submit-article" data-ar="نشر المقال" data-en="Publish Article">نشر المقال</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Join Modal -->
+    <div class="modal" id="joinModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeJoinModal()">×</button>
+            <h2 style="margin-bottom: 1rem; color: var(--primary-green);" data-ar="انضم إلى مبادرة بواسل" data-en="Join Bawasil Initiative">انضم إلى مبادرة بواسل</h2>
+            <p style="color: var(--text-gray); margin-bottom: 2rem;" data-ar="نسعد بانضمامك إلى عائلة بواسل. املأ البيانات التالية:" data-en="We're excited to have you join Bawasil family. Fill in the following information:">نسعد بانضمامك إلى عائلة بواسل. املأ البيانات التالية:</p>
+            <form id="joinForm" onsubmit="submitJoinForm(event)">
+                <div class="form-group">
+                    <label data-ar="الاسم الرباعي *" data-en="Full Name *">الاسم الرباعي *</label>
+                    <input type="text" id="fullName" required placeholder="الاسم الرباعي كاملاً">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ar="رقم الهاتف *" data-en="Phone Number *">رقم الهاتف *</label>
+                        <input type="tel" id="phone" required placeholder="07XXXXXXXX" pattern="07[7-9][0-9]{7}">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-ar="العمر *" data-en="Age *">العمر *</label>
+                        <input type="number" id="age" required min="18" max="35" placeholder="18-35">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-ar="الرقم الوطني *" data-en="National ID *">الرقم الوطني *</label>
+                    <input type="text" id="nationalId" required placeholder="10 أرقام" pattern="[0-9]{10}" maxlength="10">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label data-ar="المحافظة *" data-en="Governorate *">المحافظة *</label>
+                        <select id="governorate" required>
+                            <option value="" data-ar="اختر المحافظة" data-en="Select Governorate">اختر المحافظة</option>
+                            <option value="عمان" data-ar="عمان" data-en="Amman">عمان</option>
+                            <option value="إربد" data-ar="إربد" data-en="Irbid">إربد</option>
+                            <option value="الزرقاء" data-ar="الزرقاء" data-en="Zarqa">الزرقاء</option>
+                            <option value="البلقاء" data-ar="البلقاء" data-en="Balqa">البلقاء</option>
+                            <option value="المفرق" data-ar="المفرق" data-en="Mafraq">المفرق</option>
+                            <option value="جرش" data-ar="جرش" data-en="Jerash">جرش</option>
+                            <option value="عجلون" data-ar="عجلون" data-en="Ajloun">عجلون</option>
+                            <option value="الكرك" data-ar="الكرك" data-en="Karak">الكرك</option>
+                            <option value="معان" data-ar="معان" data-en="Ma'an">معان</option>
+                            <option value="الطفيلة" data-ar="الطفيلة" data-en="Tafilah">الطفيلة</option>
+                            <option value="العقبة" data-ar="العقبة" data-en="Aqaba">العقبة</option>
+                            <option value="مادبا" data-ar="مادبا" data-en="Madaba">مادبا</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label data-ar="الجامعة *" data-en="University *">الجامعة *</label>
+                        <select id="university" required>
+                            <option value="" data-ar="اختر الجامعة" data-en="Select University">اختر الجامعة</option>
+                            <option value="الجامعة الأردنية" data-ar="الجامعة الأردنية" data-en="University of Jordan">الجامعة الأردنية</option>
+                            <option value="جامعة العلوم والتكنولوجيا" data-ar="جامعة العلوم والتكنولوجيا" data-en="Jordan University of Science and Technology">جامعة العلوم والتكنولوجيا</option>
+                            <option value="جامعة اليرموك" data-ar="جامعة اليرموك" data-en="Yarmouk University">جامعة اليرموك</option>
+                            <option value="جامعة مؤتة" data-ar="جامعة مؤتة" data-en="Mutah University">جامعة مؤتة</option>
+                            <option value="الجامعة الهاشمية" data-ar="الجامعة الهاشمية" data-en="Hashemite University">الجامعة الهاشمية</option>
+                            <option value="جامعة آل البيت" data-ar="جامعة آل البيت" data-en="Al al-Bayt University">جامعة آل البيت</option>
+                            <option value="جامعة البلقاء التطبيقية" data-ar="جامعة البلقاء التطبيقية" data-en="Al-Balqa Applied University">جامعة البلقاء التطبيقية</option>
+                            <option value="الجامعة الألمانية الأردنية" data-ar="الجامعة الألمانية الأردنية" data-en="German Jordanian University">الجامعة الألمانية الأردنية</option>
+                            <option value="جامعة الحسين بن طلال" data-ar="جامعة الحسين بن طلال" data-en="Al-Hussein Bin Talal University">جامعة الحسين بن طلال</option>
+                            <option value="جامعة عمان الأهلية" data-ar="جامعة عمان الأهلية" data-en="Al-Ahliyya Amman University">جامعة عمان الأهلية</option>
+                            <option value="جامعة الشرق الأوسط" data-ar="جامعة الشرق الأوسط" data-en="Middle East University">جامعة الشرق الأوسط</option>
+                            <option value="جامعة الزرقاء" data-ar="جامعة الزرقاء" data-en="Zarqa University">جامعة الزرقاء</option>
+                            <option value="جامعة الإسراء" data-ar="جامعة الإسراء" data-en="Isra University">جامعة الإسراء</option>
+                            <option value="جامعة البترا" data-ar="جامعة البترا" data-en="Petra University">جامعة البترا</option>
+                            <option value="جامعة فيلادلفيا" data-ar="جامعة فيلادلفيا" data-en="Philadelphia University">جامعة فيلادلفيا</option>
+                            <option value="جامعة عمان العربية" data-ar="جامعة عمان العربية" data-en="Amman Arab University">جامعة عمان العربية</option>
+                            <option value="جامعة جدارا" data-ar="جامعة جدارا" data-en="Jadara University">جامعة جدارا</option>
+                            <option value="جامعة إربد الأهلية" data-ar="جامعة إربد الأهلية" data-en="Irbid National University">جامعة إربد الأهلية</option>
+                            <option value="جامعة الزيتونة" data-ar="جامعة الزيتونة" data-en="Al-Zaytoonah University">جامعة الزيتونة</option>
+                            <option value="جامعة العقبة للتكنولوجيا" data-ar="جامعة العقبة للتكنولوجيا" data-en="Aqaba University of Technology">جامعة العقبة للتكنولوجيا</option>
+                            <option value="غير ملتحق بجامعة" data-ar="غير ملتحق بجامعة" data-en="Not enrolled in university">غير ملتحق بجامعة</option>
+                            <option value="أخرى" data-ar="أخرى" data-en="Other">أخرى</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-article" data-ar="إرسال الطلب" data-en="Submit Application">إرسال الطلب</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact fade-in">
+            <h2 class="section-title" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</h2>
+            <p style="font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem;" data-ar="نسعد بتواصلكم ومشاركتكم معنا" data-en="We look forward to hearing from you and joining us">نسعد بتواصلكم ومشاركتكم معنا</p>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/biwasil?igsh=MXFibzk5bjlrNGVxbQ==" target="_blank" rel="noopener noreferrer" class="social-link instagram">
+                    <span class="social-icon">📷</span>
+                    <span data-ar="إنستجرام" data-en="Instagram">إنستجرام</span>
+                </a>
+                <a href="https://wa.me/962793009301" target="_blank" rel="noopener noreferrer" class="social-link whatsapp">
+                    <span class="social-icon">💬</span>
+                    <span data-ar="واتساب" data-en="WhatsApp">واتساب</span>
+                </a>
+                <a href="https://www.facebook.com/share/1C73MwZqvz/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                    <span class="social-icon">👥</span>
+                    <span data-ar="فيسبوك" data-en="Facebook">فيسبوك</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-slogan">بواسل… لأن الأردن يجمعنا</div>
+        <p>© 2025 مبادرة بواسل - جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        // Language Toggle
+        let currentLang = 'ar';
+        
+        const translations = {
+            ar: {
+                dir: 'rtl',
+                logo: 'بواسل',
+                logoAlt: 'شعار بواسل',
+                heroTitle: 'مبادرة <span class="highlight">بواسل</span>… شباب واعٍ، وهوية راسخة، ومستقبل يُصنع',
+                heroDesc: 'مبادرة شبابية أردنية تُعنى بتعزيز الهوية الوطنية والسردية الأردنية، والتمكين السياسي الواعي، وبناء جيل مؤمن بوطنه ومعتز بانتمائه',
+                btnPrimary: 'تعرّف على المبادرة',
+                btnSecondary: 'انضم إلينا',
+                slogan: 'بواسل… لأن الأردن يجمعنا',
+                copyright: '© 2025 مبادرة بواسل - جميع الحقوق محفوظة'
+            },
+            en: {
+                dir: 'ltr',
+                logo: 'Bawasil',
+                logoAlt: 'Bawasil Logo',
+                heroTitle: '<span class="highlight">Bawasil</span> Initiative... Conscious Youth, Strong Identity, and a Future We Build',
+                heroDesc: 'A Jordanian youth initiative dedicated to strengthening national identity and narrative, promoting conscious political empowerment, and building a generation proud of their homeland',
+                btnPrimary: 'Learn About Us',
+                btnSecondary: 'Join Us',
+                slogan: 'Bawasil... Because Jordan Unites Us',
+                copyright: '© 2025 Bawasil Initiative - All Rights Reserved'
+            }
+        };
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const html = document.documentElement;
+            const langBtn = document.getElementById('langToggle');
+            
+            // Change direction
+            html.setAttribute('lang', currentLang);
+            html.setAttribute('dir', translations[currentLang].dir);
+            
+            // Update button text
+            langBtn.textContent = currentLang === 'ar' ? 'English' : 'عربي';
+            
+            // Update logo alt text
+            const logoImg = document.querySelector('.logo img');
+            if (logoImg) {
+                logoImg.alt = translations[currentLang].logoAlt;
+            }
+            
+            // Update hero section
+            document.querySelector('.hero h1').innerHTML = translations[currentLang].heroTitle;
+            document.querySelector('.hero p').textContent = translations[currentLang].heroDesc;
+            document.querySelectorAll('.btn-primary')[0].textContent = translations[currentLang].btnPrimary;
+            document.querySelectorAll('.btn-secondary')[0].textContent = translations[currentLang].btnSecondary;
+            
+            // Update footer
+            document.querySelector('.footer-slogan').textContent = translations[currentLang].slogan;
+            document.querySelector('footer p').textContent = translations[currentLang].copyright;
+            
+            // Update all elements with data attributes
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                if (currentLang === 'ar') {
+                    el.textContent = el.getAttribute('data-ar');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+            
+            // Update form placeholders
+            updateFormPlaceholders();
+        }
+        
+        function updateFormPlaceholders() {
+            if (currentLang === 'en') {
+                // Article form
+                if (document.getElementById('authorName')) {
+                    document.getElementById('authorName').placeholder = 'Enter your name';
+                    document.getElementById('articleTitle').placeholder = 'An engaging title for your article';
+                    document.getElementById('articleContent').placeholder = 'Write your article here... Share your thoughts and experiences';
+                }
+                // Join form
+                if (document.getElementById('fullName')) {
+                    document.getElementById('fullName').placeholder = 'Full Name';
+                    document.getElementById('phone').placeholder = '07XXXXXXXX';
+                    document.getElementById('age').placeholder = '18-35';
+                    document.getElementById('nationalId').placeholder = '10 digits';
+                }
+            } else {
+                // Article form
+                if (document.getElementById('authorName')) {
+                    document.getElementById('authorName').placeholder = 'أدخل اسمك';
+                    document.getElementById('articleTitle').placeholder = 'عنوان جذاب لمقالك';
+                    document.getElementById('articleContent').placeholder = 'اكتب مقالك هنا... شاركنا أفكارك وتجاربك';
+                }
+                // Join form
+                if (document.getElementById('fullName')) {
+                    document.getElementById('fullName').placeholder = 'الاسم الرباعي كاملاً';
+                    document.getElementById('phone').placeholder = '07XXXXXXXX';
+                    document.getElementById('age').placeholder = '18-35';
+                    document.getElementById('nationalId').placeholder = '10 أرقام';
+                }
+            }
+        }
+        
+        // Article Modal Functions
+        function openArticleModal() {
+            document.getElementById('articleModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeArticleModal() {
+            document.getElementById('articleModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('articleForm').reset();
+        }
+        
+        // Close modal on outside click
+        document.getElementById('articleModal').addEventListener('click', (e) => {
+            if (e.target.id === 'articleModal') {
+                closeArticleModal();
+            }
+        });
+        
+        // Articles Storage
+        let articles = [];
+        
+        // Load articles from memory on page load
+        function loadArticles() {
+            displayArticles();
+        }
+        
+        function submitArticle(e) {
+            e.preventDefault();
+            
+            const article = {
+                id: Date.now(),
+                author: document.getElementById('authorName').value,
+                title: document.getElementById('articleTitle').value,
+                content: document.getElementById('articleContent').value,
+                date: new Date().toLocaleDateString('ar-JO', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                }),
+                excerpt: document.getElementById('articleContent').value.substring(0, 150) + '...'
+            };
+            
+            articles.unshift(article);
+            displayArticles();
+            closeArticleModal();
+            
+            // Scroll to articles section
+            document.getElementById('articles').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function displayArticles() {
+            const container = document.getElementById('articlesContainer');
+            
+            if (articles.length === 0) {
+                container.innerHTML = `<div class="no-articles" data-ar="لا توجد مقالات بعد. كن أول من يشارك مقاله!" data-en="No articles yet. Be the first to share your article!">${currentLang === 'ar' ? 'لا توجد مقالات بعد. كن أول من يشارك مقاله!' : 'No articles yet. Be the first to share your article!'}</div>`;
+                return;
+            }
+            
+            container.innerHTML = articles.map(article => `
+                <div class="article-card">
+                    <div class="article-header">
+                        <h3 class="article-title">${article.title}</h3>
+                        <div class="article-meta">
+                            <span>✍️ ${article.author}</span>
+                            <span>📅 ${article.date}</span>
+                        </div>
+                    </div>
+                    <div class="article-content">
+                        <p>${article.excerpt}</p>
+                    </div>
+                    <div class="article-footer">
+                        <a href="#" class="read-more" onclick="showFullArticle(${article.id}); return false;">${currentLang === 'ar' ? 'اقرأ المزيد ←' : 'Read More →'}</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function showFullArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+            
+            const modal = document.getElementById('articleModal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            modalContent.innerHTML = `
+                <button class="close-modal" onclick="closeArticleModal(); restoreModalForm();">×</button>
+                <div style="padding: 1rem 0;">
+                    <h2 style="color: var(--primary-green); margin-bottom: 1rem;">${article.title}</h2>
+                    <div class="article-meta" style="margin-bottom: 2rem; justify-content: flex-start;">
+                        <span style="color: var(--text-gray);">✍️ ${article.author}</span>
+                        <span style="color: var(--text-gray);">📅 ${article.date}</span>
+                    </div>
+                    <div style="line-height: 2; color: var(--text-dark); white-space: pre-wrap;">${article.content}</div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function restoreModalForm() {
+            const modalContent = document.querySelector('.modal-content');
+            modalContent.innerHTML = `
+                <button class="close-modal" onclick="closeArticleModal()">×</button>
+                <h2 style="margin-bottom: 2rem; color: var(--primary-green);" data-ar="اكتب مقالك" data-en="Write Your Article">${currentLang === 'ar' ? 'اكتب مقالك' : 'Write Your Article'}</h2>
+                <form id="articleForm" onsubmit="submitArticle(event)">
+                    <div class="form-group">
+                        <label data-ar="الاسم" data-en="Name">${currentLang === 'ar' ? 'الاسم' : 'Name'}</label>
+                        <input type="text" id="authorName" required placeholder="${currentLang === 'ar' ? 'أدخل اسمك' : 'Enter your name'}">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="عنوان المقال" data-en="Article Title">${currentLang === 'ar' ? 'عنوان المقال' : 'Article Title'}</label>
+                        <input type="text" id="articleTitle" required placeholder="${currentLang === 'ar' ? 'عنوان جذاب لمقالك' : 'An engaging title for your article'}">
+                    </div>
+                    <div class="form-group">
+                        <label data-ar="المحتوى" data-en="Content">${currentLang === 'ar' ? 'المحتوى' : 'Content'}</label>
+                        <textarea id="articleContent" required placeholder="${currentLang === 'ar' ? 'اكتب مقالك هنا... شاركنا أفكارك وتجاربك' : 'Write your article here... Share your thoughts and experiences'}"></textarea>
+                    </div>
+                    <button type="submit" class="submit-article" data-ar="نشر المقال" data-en="Publish Article">${currentLang === 'ar' ? 'نشر المقال' : 'Publish Article'}</button>
+                </form>
+            `;
+        }
+        
+        // Join Modal Functions
+        function openJoinModal() {
+            document.getElementById('joinModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateFormPlaceholders();
+        }
+        
+        function closeJoinModal() {
+            document.getElementById('joinModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            document.getElementById('joinForm').reset();
+        }
+        
+        // Close modal on outside click
+        document.getElementById('joinModal').addEventListener('click', (e) => {
+            if (e.target.id === 'joinModal') {
+                closeJoinModal();
+            }
+        });
+        
+        // Join form storage
+        let joinApplications = [];
+        
+        function submitJoinForm(e) {
+            e.preventDefault();
+            
+            const application = {
+                id: Date.now(),
+                fullName: document.getElementById('fullName').value,
+                phone: document.getElementById('phone').value,
+                age: document.getElementById('age').value,
+                nationalId: document.getElementById('nationalId').value,
+                governorate: document.getElementById('governorate').value,
+                university: document.getElementById('university').value,
+                date: new Date().toLocaleDateString('ar-JO', { 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                })
+            };
+            
+            joinApplications.push(application);
+            
+            // Send email
+            sendJoinEmail(application);
+            
+            // Show success message
+            const modalContent = document.querySelector('#joinModal .modal-content');
+            modalContent.innerHTML = `
+                <button class="close-modal" onclick="closeJoinModal(); restoreJoinForm();">×</button>
+                <div class="success-message">
+                    <h3>✓ ${currentLang === 'ar' ? 'تم إرسال طلبك بنجاح!' : 'Your application has been submitted successfully!'}</h3>
+                    <p>${currentLang === 'ar' ? 'شكراً لانضمامك إلى مبادرة بواسل. سنتواصل معك قريباً.' : 'Thank you for joining Bawasil Initiative. We will contact you soon.'}</p>
+                    <p style="margin-top: 1rem;">${currentLang === 'ar' ? 'رقم الطلب' : 'Application Number'}: #${application.id}</p>
+                </div>
+            `;
+            
+            // Auto close after 5 seconds
+            setTimeout(() => {
+                closeJoinModal();
+                restoreJoinForm();
+            }, 5000);
+        }
+        
+        function sendJoinEmail(application) {
+            const subject = encodeURIComponent('طلب انضمام جديد - مبادرة بواسل');
+            const body = encodeURIComponent(`
+طلب انضمام جديد إلى مبادرة بواسل
+
+رقم الطلب: #${application.id}
+التاريخ: ${application.date}
+
+البيانات الشخصية:
+------------------
+الاسم الرباعي: ${application.fullName}
+رقم الهاتف: ${application.phone}
+العمر: ${application.age} سنة
+الرقم الوطني: ${application.nationalId}
+المحافظة: ${application.governorate}
+الجامعة: ${application.university}
+
+---
+تم الإرسال تلقائياً من موقع مبادرة بواسل
+            `);
+            
+            // Open email client
+            window.open(`mailto:biwasiljo@gmail.com?subject=${subject}&body=${body}`);
+        }
+        
+        function restoreJoinForm() {
+            const modalContent = document.querySelector('#joinModal .modal-content');
+            modalContent.innerHTML = `
+                <button class="close-modal" onclick="closeJoinModal()">×</button>
+                <h2 style="margin-bottom: 1rem; color: var(--primary-green);" data-ar="انضم إلى مبادرة بواسل" data-en="Join Bawasil Initiative">${currentLang === 'ar' ? 'انضم إلى مبادرة بواسل' : 'Join Bawasil Initiative'}</h2>
+                <p style="color: var(--text-gray); margin-bottom: 2rem;" data-ar="نسعد بانضمامك إلى عائلة بواسل. املأ البيانات التالية:" data-en="We're excited to have you join Bawasil family. Fill in the following information:">${currentLang === 'ar' ? 'نسعد بانضمامك إلى عائلة بواسل. املأ البيانات التالية:' : 'We\'re excited to have you join Bawasil family. Fill in the following information:'}</p>
+                <form id="joinForm" onsubmit="submitJoinForm(event)">
+                    <div class="form-group">
+                        <label>${currentLang === 'ar' ? 'الاسم الرباعي *' : 'Full Name *'}</label>
+                        <input type="text" id="fullName" required placeholder="${currentLang === 'ar' ? 'الاسم الرباعي كاملاً' : 'Full Name'}">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>${currentLang === 'ar' ? 'رقم الهاتف *' : 'Phone Number *'}</label>
+                            <input type="tel" id="phone" required placeholder="07XXXXXXXX" pattern="07[7-9][0-9]{7}">
+                        </div>
+                        <div class="form-group">
+                            <label>${currentLang === 'ar' ? 'العمر *' : 'Age *'}</label>
+                            <input type="number" id="age" required min="18" max="35" placeholder="18-35">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>${currentLang === 'ar' ? 'الرقم الوطني *' : 'National ID *'}</label>
+                        <input type="text" id="nationalId" required placeholder="${currentLang === 'ar' ? '10 أرقام' : '10 digits'}" pattern="[0-9]{10}" maxlength="10">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>${currentLang === 'ar' ? 'المحافظة *' : 'Governorate *'}</label>
+                            <select id="governorate" required>
+                                <option value="">${currentLang === 'ar' ? 'اختر المحافظة' : 'Select Governorate'}</option>
+                                <option value="عمان">عمان</option>
+                                <option value="إربد">إربد</option>
+                                <option value="الزرقاء">الزرقاء</option>
+                                <option value="البلقاء">البلقاء</option>
+                                <option value="المفرق">المفرق</option>
+                                <option value="جرش">جرش</option>
+                                <option value="عجلون">عجلون</option>
+                                <option value="الكرك">الكرك</option>
+                                <option value="معان">معان</option>
+                                <option value="الطفيلة">الطفيلة</option>
+                                <option value="العقبة">العقبة</option>
+                                <option value="مادبا">مادبا</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>${currentLang === 'ar' ? 'الجامعة *' : 'University *'}</label>
+                            <select id="university" required>
+                                <option value="">${currentLang === 'ar' ? 'اختر الجامعة' : 'Select University'}</option>
+                                <option value="الجامعة الأردنية">الجامعة الأردنية</option>
+                                <option value="جامعة العلوم والتكنولوجيا">جامعة العلوم والتكنولوجيا</option>
+                                <option value="جامعة اليرموك">جامعة اليرموك</option>
+                                <option value="جامعة مؤتة">جامعة مؤتة</option>
+                                <option value="الجامعة الهاشمية">الجامعة الهاشمية</option>
+                                <option value="جامعة آل البيت">جامعة آل البيت</option>
+                                <option value="جامعة البلقاء التطبيقية">جامعة البلقاء التطبيقية</option>
+                                <option value="الجامعة الألمانية الأردنية">الجامعة الألمانية الأردنية</option>
+                                <option value="جامعة الحسين بن طلال">جامعة الحسين بن طلال</option>
+                                <option value="جامعة عمان الأهلية">جامعة عمان الأهلية</option>
+                                <option value="جامعة الشرق الأوسط">جامعة الشرق الأوسط</option>
+                                <option value="جامعة الزرقاء">جامعة الزرقاء</option>
+                                <option value="جامعة الإسراء">جامعة الإسراء</option>
+                                <option value="جامعة البترا">جامعة البترا</option>
+                                <option value="جامعة فيلادلفيا">جامعة فيلادلفيا</option>
+                                <option value="جامعة عمان العربية">جامعة عمان العربية</option>
+                                <option value="جامعة جدارا">جامعة جدارا</option>
+                                <option value="جامعة إربد الأهلية">جامعة إربد الأهلية</option>
+                                <option value="جامعة الزيتونة">جامعة الزيتونة</option>
+                                <option value="جامعة العقبة للتكنولوجيا">جامعة العقبة للتكنولوجيا</option>
+                                <option value="غير ملتحق بجامعة">غير ملتحق بجامعة</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-article">${currentLang === 'ar' ? 'إرسال الطلب' : 'Submit Application'}</button>
+                </form>
+            `;
+        }
+        
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Fade In Animation on Scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        let counterAnimated = false;
+        
+        const animateCounters = () => {
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const updateCounter = () => {
+                    current += increment;
+                    if(current < target) {
+                        counter.textContent = Math.ceil(current);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target;
+                    }
+                };
+                
+                updateCounter();
+            });
+        };
+        
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting && !counterAnimated) {
+                    animateCounters();
+                    counterAnimated = true;
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsSection = document.querySelector('.stats');
+        if(statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Navbar scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if(currentScroll > 100) {
+                nav.style.padding = '0.7rem 5%';
+            } else {
+                nav.style.padding = '1rem 5%';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Load articles on page load
+        loadArticles();
+    </script>
+</body>
+</html>
